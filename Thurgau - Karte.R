@@ -1,4 +1,4 @@
-# Load and install packages
+# load and install packages
 install.packages("tidyverse")
 install.packages("sf")
 install.packages("ggthemes")
@@ -10,8 +10,12 @@ library(ggthemes)
 library(DescTools)
 library(ggrepel)
 
-# Table of the canton Thurgau
+# table of the canton Thurgau
 Thurgau_Gemeindegrenzen <- st_read("C:/R Projects/Thurgau/Gemeinden_TG/Gemeinden_TG.shp")
+
+# list of new values
+Liste_neu  <- c(1:80)
+view(Liste_neu)
 
 # table modifications
 Konsum_von_saurem_Most_am_Arbeitsplatz <- Thurgau_Gemeindegrenzen %>% 
@@ -38,7 +42,7 @@ ggplot() +
   theme(axis.text.x = element_blank(),
         axis.text.y = element_blank(),
         axis.ticks = element_blank(),
-        rect = element_blank()) 
+        rect = element_blank())
 
 # another map of the canton Thurgau
 ggplot() +
