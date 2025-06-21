@@ -14,12 +14,12 @@ library(ggrepel)
 Thurgau_Gemeindegrenzen <- st_read("C:/R Projects/Thurgau/Gemeinden_TG/Gemeinden_TG.shp")
 
 # list of new values
-Liste_neu  <- c(1:80)
+Liste_neu <- c(1:80)
 view(Liste_neu)
 
 # table modifications
 Konsum_von_saurem_Most_am_Arbeitsplatz <- Thurgau_Gemeindegrenzen %>% 
-  mutate(Konsum_von_saurem_Most_am_Arbeitsplatz = c("Hoch"))
+  mutate(Konsum_von_saurem_Most_am_Arbeitsplatz = c(1:80))
 Frauenfeld <- Konsum_von_saurem_Most_am_Arbeitsplatz %>%
   filter(objectid == "170") 
 Muensterlingen <- Konsum_von_saurem_Most_am_Arbeitsplatz %>%
