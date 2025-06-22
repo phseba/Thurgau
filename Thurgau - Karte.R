@@ -225,6 +225,35 @@ ggplot() +
                aes(label = gemeinde_n)) +
   theme_void() 
 
+# another map of the canton Thurgau
+ggplot() +
+  geom_sf(data = Konsum_von_saurem_Most_am_Arbeitsplatz) + 
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        rect = element_blank()) +
+  geom_sf_text(data = Frauenfeld, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Amriswil, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Arbon, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Bischofszell, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Diessenhofen, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Kreuzlingen, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Weinfelden, 
+               aes(label = gemeinde_n)) +
+  theme_void() 
+  
 # another map of the canton Thurgau and the canton Zuerich
 ggplot() +
   geom_sf(data = Konsum_von_saurem_Most_am_Arbeitsplatz) + 
@@ -237,6 +266,69 @@ ggplot() +
         axis.text.y = element_blank(),
         axis.ticks = element_blank(),
         rect = element_blank()) +
+  geom_sf_text(data = Frauenfeld, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Amriswil, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Arbon, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Bischofszell, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Diessenhofen, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Kreuzlingen, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Weinfelden, 
+               aes(label = gemeinde_n)) +
+  theme_void() 
+  
+# another map of the canton Thurgau
+ggplot() +
+  geom_sf(data = Konsum_von_saurem_Most_am_Arbeitsplatz) + 
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        rect = element_blank()) +
+  geom_sf(data = Geburten_Thurgau, 
+          aes(fill = Geburten_diskret)) +
+  geom_sf_text(data = Frauenfeld, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Amriswil, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Arbon, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Bischofszell, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Diessenhofen, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Kreuzlingen, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Weinfelden, 
+               aes(label = gemeinde_n)) +
+  theme_void() 
+
+# another map of the canton Thurgau
+ggplot() +
+  geom_sf(data = Konsum_von_saurem_Most_am_Arbeitsplatz) + 
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        rect = element_blank()) +
+  geom_sf(data = Geburten_Thurgau, 
+          aes(fill = Geburten_diskret)) +
+  scale_fill_viridis_c(direction = -1) +
   geom_sf_text(data = Frauenfeld, 
                aes(label = gemeinde_n)) +
   theme_void() +
