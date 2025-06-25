@@ -32,7 +32,10 @@ Konsum_von_saurem_Most_am_Arbeitsplatz <- Thurgau_Gemeindegrenzen %>%
   mutate(Konsum_von_saurem_Most_am_Arbeitsplatz_kategorisch = c("Hoch"))
 Geburten_Thurgau <- Konsum_von_saurem_Most_am_Arbeitsplatz %>%
   mutate(Geburten_kategorisch = c("Viele")) %>% 
-  mutate(Geburten_diskret = c(c(1:80)))
+  mutate(Geburten_diskret = c(c(1:80))) %>% 
+  mutate(Geburten_total = c(2)) 
+Geburten_Thurgau$Geburten_ratio <- Geburten_Thurgau$Geburten_diskret /
+  Geburten_Thurgau$Geburten_total
 Frauenfeld <- Konsum_von_saurem_Most_am_Arbeitsplatz %>%
   filter(objectid == "170") 
 Muensterlingen <- Konsum_von_saurem_Most_am_Arbeitsplatz %>%
@@ -328,6 +331,38 @@ ggplot() +
         rect = element_blank()) +
   geom_sf(data = Geburten_Thurgau, 
           aes(fill = Geburten_diskret)) +
+  scale_fill_viridis_c(direction = -1) +
+  geom_sf_text(data = Frauenfeld, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Amriswil, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Arbon, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Bischofszell, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Diessenhofen, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Kreuzlingen, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Weinfelden, 
+               aes(label = gemeinde_n)) +
+  theme_void() 
+
+# another map of the canton Thurgau
+ggplot() +
+  geom_sf(data = Konsum_von_saurem_Most_am_Arbeitsplatz) + 
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.ticks = element_blank(),
+        rect = element_blank()) +
+  geom_sf(data = Geburten_Thurgau, 
+          aes(fill = Geburten_ratio)) +
   scale_fill_viridis_c(direction = -1) +
   geom_sf_text(data = Frauenfeld, 
                aes(label = gemeinde_n)) +
