@@ -29,7 +29,13 @@ Thurgau_1 <- rename(Thurgau_1, gemeinde_b = Identifikator)
 Dataframe_STGAG <- full_join(Dataframe_Thurgau_Gemeindegrenzen, Thurgau_1, 
                               by = "gemeinde_b")
 Dataframe_STGAG <- st_as_sf(Dataframe_STGAG)
-Dataframe_STGAG <- rename(Dataframe_STGAG, Anteil_STGAG_Geburten = "Anteil STGAG-Geburten")
+Dataframe_STGAG <- rename(Dataframe_STGAG, Anteil_STGAG_Geburten = 
+                            "Anteil STGAG-Geburten")
+
+# change proportion values greater than 1
+Dataframe_STGAG$Anteil_STGAG_Geburten <- ifelse(
+  Dataframe_STGAG$Anteil_STGAG_Geburten >= 1.0, 1.0, 
+  Dataframe_STGAG$Anteil_STGAG_Geburten)
 
 # table modifications of the canton Thurgau
 Konsum_von_saurem_Most_am_Arbeitsplatz <- Thurgau_Gemeindegrenzen %>% 
@@ -111,4 +117,24 @@ ggplot() +
   geom_sf(data = Dataframe_STGAG, 
           aes(fill = Anteil_STGAG_Geburten)) +
   scale_fill_viridis_c(direction = -1) +
+  geom_sf_text(data = Frauenfeld, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Amriswil, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Arbon, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Bischofszell, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Diessenhofen, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Kreuzlingen, 
+               aes(label = gemeinde_n)) +
+  theme_void() +
+  geom_sf_text(data = Weinfelden, 
+               aes(label = gemeinde_n)) +
   theme_void() 
