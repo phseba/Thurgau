@@ -18,14 +18,14 @@ Thurgau_Gemeindegrenzen <- Thurgau_Gemeindegrenzen %>%
   relocate(ID) %>% 
   arrange(Thurgau_Gemeindegrenzen$gemeinde_n)
 
-# table of the canton Thurgau
+# table of the canton Thurgau as dataframe
 Dataframe_Thurgau_Gemeindegrenzen <- as.data.frame(Thurgau_Gemeindegrenzen)
 
-# table by STGAG
+# table provided by STGAG, rename variable
 Thurgau_1 <- Thurgau_1 
 Thurgau_1 <- rename(Thurgau_1, gemeinde_b = Identifikator)
 
-# join tables
+# join tables and rename variable
 Dataframe_STGAG <- full_join(Dataframe_Thurgau_Gemeindegrenzen, Thurgau_1, 
                               by = "gemeinde_b")
 Dataframe_STGAG <- st_as_sf(Dataframe_STGAG)
@@ -37,7 +37,7 @@ Dataframe_STGAG$Anteil_STGAG_Geburten <- ifelse(
   Dataframe_STGAG$Anteil_STGAG_Geburten >= 1.0, 1.0, 
   Dataframe_STGAG$Anteil_STGAG_Geburten)
 
-# table modifications of the canton Thurgau
+# some modifications of the canton Thurgau table
 Konsum_von_saurem_Most_am_Arbeitsplatz <- Thurgau_Gemeindegrenzen %>% 
   mutate(Konsum_von_saurem_Most_am_Arbeitsplatz_diskret = c(1:80)) %>% 
   mutate(Konsum_von_saurem_Most_am_Arbeitsplatz_kategorisch = c("Hoch"))
