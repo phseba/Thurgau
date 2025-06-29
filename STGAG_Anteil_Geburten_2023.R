@@ -37,7 +37,7 @@ Dataframe_STGAG$Anteil_STGAG_Geburten <- ifelse(
   Dataframe_STGAG$Anteil_STGAG_Geburten >= 1.0, 1.0, 
   Dataframe_STGAG$Anteil_STGAG_Geburten)
 
-# some modifications of the canton Thurgau table
+# some modifications to the canton Thurgau table
 Konsum_von_saurem_Most_am_Arbeitsplatz <- Thurgau_Gemeindegrenzen %>% 
   mutate(Konsum_von_saurem_Most_am_Arbeitsplatz_diskret = c(1:80)) %>% 
   mutate(Konsum_von_saurem_Most_am_Arbeitsplatz_kategorisch = c("Hoch"))
