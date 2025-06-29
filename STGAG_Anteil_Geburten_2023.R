@@ -87,22 +87,16 @@ ggplot() +
   scale_fill_viridis_c(direction = -1) +
   geom_sf_text(data = Frauenfeld, 
                aes(label = gemeinde_n)) +
-  theme_void() +
   geom_sf_text(data = Amriswil, 
                aes(label = gemeinde_n)) +
-  theme_void() +
   geom_sf_text(data = Arbon, 
                aes(label = gemeinde_n)) +
-  theme_void() +
   geom_sf_text(data = Bischofszell, 
                aes(label = gemeinde_n)) +
-  theme_void() +
   geom_sf_text(data = Diessenhofen, 
                aes(label = gemeinde_n)) +
-  theme_void() +
   geom_sf_text(data = Kreuzlingen, 
                aes(label = gemeinde_n)) +
-  theme_void() +
   geom_sf_text(data = Weinfelden, 
                aes(label = gemeinde_n)) +
   theme_void() 
