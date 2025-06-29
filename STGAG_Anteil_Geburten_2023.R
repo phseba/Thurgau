@@ -82,9 +82,13 @@ ggplot() +
         axis.text.y = element_blank(),
         axis.ticks = element_blank(),
         rect = element_blank()) +
-  geom_sf(data = Dataframe_STGAG, 
+  geom_sf(data = Dataframe_STGAG,
           aes(fill = Anteil_STGAG_Geburten)) +
   scale_fill_viridis_c(direction = -1, option = "viridis") +
+  labs(
+    title = "Titel",
+    subtitle = "Untertitel",
+    caption = "Anmerkung") +
   geom_sf_text(data = Frauenfeld, 
                aes(label = gemeinde_n)) +
   geom_sf_text(data = Amriswil, 
